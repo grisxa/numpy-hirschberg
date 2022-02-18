@@ -4,12 +4,9 @@ A couple of supplementary functions for distance measurement.
 from typing import Tuple
 
 import numpy as np
-from typing_extensions import TypeAlias
 
-from numpy_hirschberg.types import StringVector, Vector, T, FloatVector
+from numpy_hirschberg.types import StringVector, Vector, T, FloatVector, IntVector
 
-IntVector: TypeAlias = np.typing.NDArray[int]
-GeoVector: TypeAlias = np.typing.NDArray[Tuple[float, float]]
 EARTH_RADIUS = 6371e3
 
 
