@@ -21,7 +21,7 @@ def test_geo_distance():
         ]
     )
     point = (60, 20)
-    expected = [1111949.266, 0., 1243.159, 555445.133, 6891381.116]
+    expected = [1111949.266, 0.0, 1243.159, 555445.133, 6891381.116]
 
     # when
     distance = geo_distance(point, track)

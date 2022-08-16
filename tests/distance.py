@@ -5,12 +5,20 @@ from typing import Tuple
 
 import numpy as np
 
-from numpy_hirschberg.types import StringVector, Vector, T, FloatVector, IntVector
+from numpy_hirschberg.types import (
+    StringVector,
+    Vector,
+    VectorItem,
+    FloatVector,
+    IntVector,
+)
 
 EARTH_RADIUS = 6371e3
 
 
-def symbol_distance(a: str, b: StringVector) -> IntVector:  # pylint: disable=invalid-name
+def symbol_distance(
+    a: str, b: StringVector
+) -> IntVector:  # pylint: disable=invalid-name
     """
     Build a vector of distances from a source item list (a) to the target one (b).
 
@@ -23,7 +31,9 @@ def symbol_distance(a: str, b: StringVector) -> IntVector:  # pylint: disable=in
     return abs(b.view(np.int32) - ord(a))
 
 
-def match_distance(a: T, b: Vector) -> IntVector:  # pylint: disable=invalid-name
+def match_distance(
+    a: VectorItem, b: Vector
+) -> IntVector:  # pylint: disable=invalid-name
     """
     Build a vector of distances from a source item list (a) to the target one (b).
 

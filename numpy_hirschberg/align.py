@@ -1,4 +1,6 @@
 """
+Hirschberg's sequence alignment.
+
 A more space-efficient version of the `Needleman-Wunsch algorithm`_
 for the sequence alignment problem invented by Dan Hirschberg.
 
@@ -15,23 +17,24 @@ Another good visual analysis is in the `blog post by Piotr Turski`_.
     https://en.wikipedia.org/wiki/Needleman-Wunsch_algorithm
 """
 
-from typing import Tuple, Callable
+from typing import Tuple
 
 import numpy as np
 from numpy import add, full, concatenate, empty, fmax, flipud
 
-from numpy_hirschberg.types import Vector, FloatVector, T
+from numpy_hirschberg.types import Vector, FloatVector, VectorItem, CostFunction
 
 
 def align(  # pylint: disable=too-many-locals
     source: Vector,
     target: Vector,
-    cost_function: Callable[[T, Vector], Vector],
+    cost_function: CostFunction,
     deletion_cost: int = 100,
     insertion_cost: int = 0,
 ) -> Tuple[Vector, Vector, float]:
     """
     Divide and conquer approach to sequence alignment problem invented by Dan Hirschberg.
+
     See detailed explanation in the `Wikipedia article`_.
     Another good visual analysis is in the `blog post by Piotr Turski`_.
 
@@ -117,7 +120,7 @@ def align(  # pylint: disable=too-many-locals
 def score_matrix(  # pylint: disable=too-many-locals
     source: Vector,
     target: Vector,
-    cost_function: Callable[[T, Vector], Vector],
+    cost_function: CostFunction,
     deletion_cost: int = 100,
     insertion_cost: int = 10,
 ) -> Vector:
@@ -170,7 +173,7 @@ def score_matrix(  # pylint: disable=too-many-locals
 
 
 def linear_search(
-    subject: T, target: Vector, cost_function: Callable[[T, Vector], Vector]
+    subject: VectorItem, target: Vector, cost_function: CostFunction
 ) -> Tuple[Vector, float]:
     """
     Finds the best position in the (target) vector for the subject.
