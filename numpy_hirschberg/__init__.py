@@ -1,5 +1,8 @@
 """
-TODO: The package description.
+Hirschberg's sequence alignment implemented on the NumPy arrays.
+
+Functions:
+    :func:`align` (source, target, cost_function, deletion_cost, insertion_cost)
 """
 __version__ = "0.1.0"
 
