@@ -19,11 +19,11 @@ if numpy.__version__ >= "1.20":
     FloatVector: TypeAlias = numpy.typing.NDArray[float]
     GeoVector: TypeAlias = numpy.typing.NDArray[Tuple[float, float]]
 else:
-    Vector: TypeAlias = numpy.ndarray
-    StringVector: TypeAlias = numpy.ndarray
-    IntVector: TypeAlias = numpy.ndarray
-    FloatVector: TypeAlias = numpy.ndarray
-    GeoVector: TypeAlias = numpy.ndarray
+    Vector: TypeAlias = numpy.ndarray  # type: ignore
+    StringVector: TypeAlias = numpy.ndarray  # type: ignore
+    IntVector: TypeAlias = numpy.ndarray  # type: ignore
+    FloatVector: TypeAlias = numpy.ndarray  # type: ignore
+    GeoVector: TypeAlias = numpy.ndarray  # type: ignore
 
 
 CostFunction: TypeAlias = Callable[[VectorItem, Vector], Vector]
